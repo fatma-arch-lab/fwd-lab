@@ -73,7 +73,7 @@ export default function AboutPage() {
               </p>
               <p className="text-base leading-relaxed text-neutral-600">
                 Our strength is in combining clear thinking with strong technical
-                execution. We don't just write code — we help you understand your
+                execution. We don&apos;t just write code — we help you understand your
                 options, plan properly, and build the right thing.
               </p>
             </div>
@@ -88,7 +88,7 @@ export default function AboutPage() {
                 streamlining internal operations.
               </p>
               <p className="text-base leading-relaxed text-neutral-600">
-                We're based in Oman and serve clients across the Gulf and beyond.
+                We&apos;re based in Oman and serve clients across the Gulf and beyond.
               </p>
             </div>
           </div>
