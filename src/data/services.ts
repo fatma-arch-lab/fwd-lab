@@ -1,18 +1,16 @@
-// ─────────────────────────────────────────────
-//  SERVICES DATA
-//  To add a new service: copy one object block,
-//  paste it at the end of the array, and fill
-//  in the fields.
-// ─────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
+//  SERVICES — add, remove, or edit services here.
+//  Changes propagate automatically to all pages and the footer.
+// ─────────────────────────────────────────────────────────────
 
 export interface Service {
   id: string;
   title: string;
   shortDescription: string;
   fullDescription: string;
-  icon: string; // Unicode emoji or text icon
+  icon: string;
   features: string[];
-  tag?: string; // Optional badge label
+  tag?: string;
 }
 
 export const services: Service[] = [
@@ -112,6 +110,23 @@ export const services: Service[] = [
       "Architecture review",
       "Team capability planning",
     ],
+  },
+  {
+    id: "digital-transformation",
+    title: "Digital Transformation Consulting",
+    shortDescription:
+      "Strategic guidance to help your organisation embrace digital ways of working.",
+    fullDescription:
+      "We help organisations plan and execute their digital transformation journeys — from strategy through implementation. We focus on people, processes, and technology in equal measure.",
+    icon: "🔮",
+    features: [
+      "Current-state assessment",
+      "Transformation roadmap",
+      "Change management support",
+      "Vendor selection",
+      "Pilot programme design",
+    ],
+    tag: "New",
   },
   {
     id: "support-maintenance",
