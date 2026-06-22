@@ -1,0 +1,40 @@
+// ─────────────────────────────────────────────
+//  SITE-WIDE CONFIGURATION
+//  Edit this file to update company info, hero
+//  text, contact details, and social links.
+// ─────────────────────────────────────────────
+
+export const siteConfig = {
+  name: "FWD Lab",
+  tagline: "Building simple, smart digital solutions for growing businesses.",
+  description:
+    "FWD Lab helps businesses in Oman design, build, and automate websites, applications, and digital workflows with a practical, modern approach.",
+  url: "https://fwdlab.com",
+
+  hero: {
+    headline: "Building simple, smart digital solutions for growing businesses.",
+    subheadline:
+      "FWD Lab helps businesses design, build, and automate websites, applications, and digital workflows with a practical, modern approach.",
+    primaryCta: { label: "Start a Project", href: "/contact" },
+    secondaryCta: { label: "View Our Work", href: "/work" },
+  },
+
+  contact: {
+    email: "info@fwdlab.om",
+    phone: "+968 9000 0000",
+    address: "Muscat, Oman",
+  },
+
+  social: {
+    linkedin: "https://linkedin.com/company/fwdlab",
+    twitter: "https://twitter.com/fwdlab",
+    github: "https://github.com/fatma-arch-lab",
+  },
+
+  seo: {
+    defaultTitle: "FWD Lab — Digital Solutions for Growing Businesses",
+    titleTemplate: "%s | FWD Lab",
+    defaultDescription:
+      "FWD Lab is an Oman-based IT consultancy that designs, builds, and automates digital solutions — websites, web apps, business applications, and workflow automation.",
+  },
+} as const;
