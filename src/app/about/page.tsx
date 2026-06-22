@@ -11,7 +11,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about FWD Lab — a small, modern IT consultancy based in Muscat, Oman, helping businesses design, build, and automate digital solutions.",
+    "FWD Lab — a modern IT consultancy based in Muscat, Oman, helping businesses design, build, and automate digital solutions.",
 };
 
 export default function AboutPage() {
@@ -29,40 +29,37 @@ export default function AboutPage() {
       {/* What we do / Who we work with */}
       <Section background="light">
         <Container size="md">
-          <div className="grid gap-12 md:grid-cols-2 md:gap-16 items-start">
+          <div className="grid gap-12 md:grid-cols-2 md:gap-16">
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-neutral-900">{whatWeDo.title}</h2>
+              <h2 className="mb-5 text-xl font-bold text-ink-950">{whatWeDo.title}</h2>
               {whatWeDo.paragraphs.map((p, i) => (
-                <p key={i} className="mb-4 text-base leading-relaxed text-neutral-600 last:mb-0">
-                  {p}
-                </p>
+                <p key={i} className="mb-4 text-base leading-relaxed text-ink-600 last:mb-0">{p}</p>
               ))}
             </div>
             <div>
-              <h2 className="mb-4 text-2xl font-bold text-neutral-900">{whoWeWorkWith.title}</h2>
+              <h2 className="mb-5 text-xl font-bold text-ink-950">{whoWeWorkWith.title}</h2>
               {whoWeWorkWith.paragraphs.map((p, i) => (
-                <p key={i} className="mb-4 text-base leading-relaxed text-neutral-600 last:mb-0">
-                  {p}
-                </p>
+                <p key={i} className="mb-4 text-base leading-relaxed text-ink-600 last:mb-0">{p}</p>
               ))}
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* Company values */}
+      {/* Values */}
       <Section background="white">
         <Container>
           <SectionHeading
             eyebrow="Our Values"
             title="How we think about our work"
             description="These principles shape every decision we make — from how we scope a project to how we write code."
+            align="left"
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {companyValues.map((value) => (
-              <Card key={value.title}>
-                <h3 className="mb-2 text-sm font-semibold text-neutral-900">{value.title}</h3>
-                <p className="text-sm leading-relaxed text-neutral-500">{value.description}</p>
+              <Card key={value.title} accent>
+                <h3 className="mb-2 text-sm font-semibold text-ink-900">{value.title}</h3>
+                <p className="text-sm leading-relaxed text-ink-500">{value.description}</p>
               </Card>
             ))}
           </div>
@@ -72,19 +69,20 @@ export default function AboutPage() {
       {/* Why FWD Lab */}
       <Section background="light">
         <Container>
-          <SectionHeading eyebrow="Why FWD Lab" title="What makes us different" />
+          <SectionHeading
+            eyebrow="Why FWD Lab"
+            title="What makes us different"
+            align="left"
+          />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {whyPoints.map((point) => (
-              <div
-                key={point.title}
-                className="flex gap-4 rounded-2xl border border-neutral-100 bg-white p-6 shadow-soft"
-              >
+              <div key={point.title} className="flex gap-4 rounded-2xl border border-ink-100 bg-white p-6 shadow-soft">
                 <div className="mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-brand-50 text-xl">
                   {point.icon}
                 </div>
                 <div>
-                  <h3 className="mb-1 text-sm font-semibold text-neutral-900">{point.title}</h3>
-                  <p className="text-sm leading-relaxed text-neutral-500">{point.description}</p>
+                  <h3 className="mb-1.5 text-sm font-semibold text-ink-900">{point.title}</h3>
+                  <p className="text-sm leading-relaxed text-ink-500">{point.description}</p>
                 </div>
               </div>
             ))}
