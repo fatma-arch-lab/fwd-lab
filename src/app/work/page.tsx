@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { portfolioProjects } from "@/data/portfolio";
+import { getCategoryIcon } from "@/lib/utils";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
+import { PageHero } from "@/components/ui/PageHero";
+import { InlineCTA } from "@/components/ui/InlineCTA";
 import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -12,31 +14,15 @@ export const metadata: Metadata = {
     "Explore FWD Lab's portfolio — websites, web applications, business software, and automation projects delivered for clients in Oman and the Gulf.",
 };
 
-// All unique categories for the filter (static page — no JS filter needed for SEO)
-const categories = ["All", ...Array.from(new Set(portfolioProjects.map((p) => p.category)))];
-
 export default function WorkPage() {
   return (
     <>
-      {/* Page hero */}
-      <div className="bg-white pt-28 pb-16 md:pt-36 md:pb-20 border-b border-neutral-100">
-        <Container size="md">
-          <div className="max-w-2xl">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-600">
-              Our Work
-            </p>
-            <h1 className="mb-6 text-4xl font-bold text-neutral-900 md:text-5xl">
-              Projects that made a difference.
-            </h1>
-            <p className="text-lg leading-relaxed text-neutral-500">
-              A selection of the work we&apos;ve done for clients. Every project here solved a
-              real business problem — no portfolio fluff.
-            </p>
-          </div>
-        </Container>
-      </div>
+      <PageHero
+        eyebrow="Our Work"
+        title="Projects that made a difference."
+        description="A selection of the work we've done for clients. Every project here solved a real business problem — no portfolio fluff."
+      />
 
-      {/* Projects grid */}
       <Section background="light">
         <Container>
           <SectionHeading
@@ -51,22 +37,19 @@ export default function WorkPage() {
                 key={project.id}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-soft card-hover"
               >
-                {/* Colour placeholder — replace with real <Image> when assets are ready */}
+                {/* Colour placeholder — replace with <Image> when assets are ready */}
                 <div
-                  className="h-48 w-full flex items-center justify-center"
+                  className="flex h-48 w-full items-center justify-center"
                   style={{ backgroundColor: project.imagePlaceholderColor }}
+                  aria-hidden="true"
                 >
-                  <span className="text-4xl opacity-50" aria-hidden>
-                    {project.category === "Business Application" ? "🏢" :
-                     project.category === "Web Application" ? "⚙️" :
-                     project.category === "Business Process Automation" ? "🤖" :
-                     project.category === "Website Development" ? "🌐" :
-                     project.category === "Low-Code Solution" ? "⚡" : "📊"}
+                  <span className="text-4xl opacity-50">
+                    {getCategoryIcon(project.category)}
                   </span>
                 </div>
 
                 <div className="flex flex-1 flex-col p-6">
-                  <div className="mb-3 flex items-center gap-2 flex-wrap">
+                  <div className="mb-3 flex flex-wrap items-center gap-2">
                     <Badge variant="neutral">{project.category}</Badge>
                     {project.featured && <Badge variant="brand">Featured</Badge>}
                   </div>
@@ -75,7 +58,7 @@ export default function WorkPage() {
                     {project.title}
                   </h2>
                   <p className="mb-2 text-xs text-neutral-400">{project.client}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-neutral-500 flex-1">
+                  <p className="mt-1 flex-1 text-sm leading-relaxed text-neutral-500">
                     {project.fullDescription ?? project.shortDescription}
                   </p>
 
@@ -83,7 +66,7 @@ export default function WorkPage() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-md bg-neutral-50 border border-neutral-100 px-2 py-0.5 text-xs text-neutral-500"
+                        className="rounded-md border border-neutral-100 bg-neutral-50 px-2 py-0.5 text-xs text-neutral-500"
                       >
                         {tag}
                       </span>
@@ -96,22 +79,12 @@ export default function WorkPage() {
         </Container>
       </Section>
 
-      {/* CTA */}
-      <Section background="white">
-        <Container size="md">
-          <div className="rounded-3xl bg-brand-50 border border-brand-100 px-8 py-12 text-center">
-            <h2 className="mb-3 text-2xl font-bold text-neutral-900">
-              Have a project in mind?
-            </h2>
-            <p className="mb-8 text-neutral-500">
-              We&apos;d love to add it to this list. Tell us what you&apos;re trying to build.
-            </p>
-            <Button href="/contact" size="lg">
-              Start a Conversation
-            </Button>
-          </div>
-        </Container>
-      </Section>
+      <InlineCTA
+        title="Have a project in mind?"
+        description="We'd love to add it to this list. Tell us what you're trying to build."
+        buttonLabel="Start a Conversation"
+        buttonHref="/contact"
+      />
     </>
   );
 }
