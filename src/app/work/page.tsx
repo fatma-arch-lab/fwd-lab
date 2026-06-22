@@ -11,7 +11,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Explore FWD Lab's portfolio — websites, web applications, business software, and automation projects delivered for clients in Oman and the Gulf.",
+    "FWD Lab portfolio — websites, web applications, business software, and automation projects delivered for clients in Oman and the Gulf.",
 };
 
 export default function WorkPage() {
@@ -20,7 +20,7 @@ export default function WorkPage() {
       <PageHero
         eyebrow="Our Work"
         title="Projects that made a difference."
-        description="A selection of the work we've done for clients. Every project here solved a real business problem — no portfolio fluff."
+        description="A selection of work done for real clients solving real problems. No filler — every project here had a measurable outcome."
       />
 
       <Section background="light">
@@ -29,21 +29,22 @@ export default function WorkPage() {
             eyebrow="Portfolio"
             title="Selected work"
             description="From enterprise applications to lean automation — built thoughtfully, delivered reliably."
+            align="left"
           />
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {portfolioProjects.map((project) => (
               <article
                 key={project.id}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-soft card-hover"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-ink-100 bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-hover hover:border-ink-200"
               >
-                {/* Colour placeholder — replace with <Image> when assets are ready */}
+                {/* Placeholder — swap with <Image> when real assets are ready */}
                 <div
                   className="flex h-48 w-full items-center justify-center"
                   style={{ backgroundColor: project.imagePlaceholderColor }}
                   aria-hidden="true"
                 >
-                  <span className="text-4xl opacity-50">
+                  <span className="text-4xl opacity-40 transition-opacity group-hover:opacity-60">
                     {getCategoryIcon(project.category)}
                   </span>
                 </div>
@@ -53,23 +54,14 @@ export default function WorkPage() {
                     <Badge variant="neutral">{project.category}</Badge>
                     {project.featured && <Badge variant="brand">Featured</Badge>}
                   </div>
-
-                  <h2 className="mb-1 text-base font-semibold text-neutral-900">
-                    {project.title}
-                  </h2>
-                  <p className="mb-2 text-xs text-neutral-400">{project.client}</p>
-                  <p className="mt-1 flex-1 text-sm leading-relaxed text-neutral-500">
+                  <h2 className="mb-1 text-base font-semibold text-ink-900">{project.title}</h2>
+                  <p className="mb-2 text-xs font-medium text-ink-400">{project.client}</p>
+                  <p className="mt-1 flex-1 text-sm leading-relaxed text-ink-500">
                     {project.fullDescription ?? project.shortDescription}
                   </p>
-
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-md border border-neutral-100 bg-neutral-50 px-2 py-0.5 text-xs text-neutral-500"
-                      >
-                        {tag}
-                      </span>
+                      <span key={tag} className="tag">{tag}</span>
                     ))}
                   </div>
                 </div>
